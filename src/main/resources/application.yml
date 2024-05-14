@@ -1,0 +1,7 @@
+example:
+  url: https://example.com/api
+  apiKey: api-key
+
+pagerduty:
+  url: https://api.pagerduty.com
+  apiKey: y_NbAkKc66ryYTWUXYEu
