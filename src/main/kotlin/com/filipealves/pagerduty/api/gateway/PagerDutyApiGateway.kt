@@ -1,9 +1,6 @@
 package com.filipealves.pagerduty.api.gateway
 
-<<<<<<< HEAD
 import com.filipealves.pagerduty.api.model.responses.IncidentsPaginated
-=======
->>>>>>> 030ce92 (First commit - Boilerplate)
 import org.slf4j.LoggerFactory
 import org.springframework.http.HttpEntity
 import org.springframework.http.HttpMethod
@@ -37,7 +34,6 @@ class PagerDutyApiGateway(
             else -> throw RestClientException("GET $url returned unexpected status code ${response.statusCode}")
         }
     }
-<<<<<<< HEAD
 
     fun getIncidentsPage(): IncidentsPaginated {
         val url = UriComponentsBuilder.fromPath("/incidents").toUriString()
@@ -56,6 +52,4 @@ class PagerDutyApiGateway(
             else -> throw RestClientException("GET $url returned unexpected status code ${response.statusCode}")
         }
     }
-=======
->>>>>>> 030ce92 (First commit - Boilerplate)
 }
