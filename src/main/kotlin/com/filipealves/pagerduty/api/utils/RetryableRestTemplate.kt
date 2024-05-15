@@ -10,7 +10,6 @@ class RetryableRestTemplate(
     private val retryTemplate: RetryTemplate,
     private val restTemplate: RestTemplate
 ) {
-    // TODO: Log when theres a retry
     fun <T, R> exchange(
         path: String,
         method: HttpMethod,

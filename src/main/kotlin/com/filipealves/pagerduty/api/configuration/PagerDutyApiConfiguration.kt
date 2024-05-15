@@ -13,7 +13,7 @@ class PagerDutyApiConfiguration(
     @Value("\${pagerduty.url}") val url: String,
     @Value("\${pagerduty.apiKey}") val apiKey: String
 ) {
-    @Bean
+    @Bean("rest-api")
     fun restTemplate() = restTemplateBuilder
         .rootUri(url)
         .defaultHeader(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)

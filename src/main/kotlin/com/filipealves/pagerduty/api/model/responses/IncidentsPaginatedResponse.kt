@@ -1,9 +1,9 @@
 package com.filipealves.pagerduty.api.model.responses
 
-data class IncidentsPaginated(
+data class IncidentsPaginatedResponse(
     val incidents: List<String>,
     val limit: Int,
     val offset: Int,
-    val total: Int = 0,
+    val total: Int?,
     val more: Boolean
 )

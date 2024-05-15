@@ -12,7 +12,6 @@ class JacksonConfiguration {
     @Bean
     fun jackson2ObjectMapperBuilder(): Jackson2ObjectMapperBuilder {
         return Jackson2ObjectMapperBuilder()
-            //.propertyNamingStrategy(PropertyNamingStrategy.SNAKE_CASE)
             .propertyNamingStrategy(PropertyNamingStrategies.SNAKE_CASE)
             .serializationInclusion(JsonInclude.Include.NON_EMPTY)
     }
