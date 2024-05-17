@@ -35,4 +35,46 @@ class PagerDutyApiGateway(
             else -> throw RestClientException("GET $url returned unexpected status code ${response.statusCode}")
         }
     }
+
+    fun getUsers(limit: Int, offset: Int): UsersResponse {
+        val url = UriComponentsBuilder.fromPath("/users")
+            .queryParam("limit", "{limit}")
+            .queryParam("offset", "{offset}")
+            .buildAndExpand(limit, offset)
+            .toUriString()
+
+        val response: ResponseEntity<UsersResponse> = restTemplate.exchange(
+            url,
+            HttpMethod.GET,
+            HttpEntity.EMPTY,
+            UsersResponse::class.java
+        )
+
+        logger.info(response.body!!.toString())
+
+        return when (response.statusCode) {
+            HttpStatus.OK -> response.body!!
+            else -> throw RestClientException("GET $url returned unexpected status code ${response.statusCode}")
+        }
+    }
+
+    fun getUserContactMethod(userId: String, contactMethodId: String) : ContactMethodResponse {
+        val url = UriComponentsBuilder.fromPath("/users/{userId}/contact_methods/{contactMethodId}")
+            .buildAndExpand(userId, contactMethodId)
+            .toUriString()
+
+        val response: ResponseEntity<ContactMethodResponse> = restTemplate.exchange(
+            url,
+            HttpMethod.GET,
+            HttpEntity.EMPTY,
+            ContactMethodResponse::class.java
+        )
+
+        logger.info(response.body!!.toString())
+
+        return when (response.statusCode) {
+            HttpStatus.OK -> response.body!!
+            else -> throw RestClientException("GET $url returned unexpected status code ${response.statusCode}")
+        }
+    }
 }

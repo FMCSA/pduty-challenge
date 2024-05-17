@@ -1,6 +1,4 @@
-example:
-  url: https://example.com/api
-  apiKey: api-key
+#logging.level.root: off
 
 pagerduty:
   url: https://api.pagerduty.com
